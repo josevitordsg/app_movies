@@ -13,12 +13,12 @@ class _MainScreenState extends State<MainScreen> {
     int itemSelecionado = 0;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pobreflix')
+        title: Center(
+            child: Image.asset("assets/images/logo.png"),
+          ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black87,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.red,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.local_movies),
@@ -29,15 +29,24 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Favoritos'
             )
         ],
+        unselectedItemColor: Colors.white,
         currentIndex: itemSelecionado,
+        selectedItemColor: Colors.red,
         onTap: (index)=>{
           setState(() {
             itemSelecionado = index;
           })
         },
-
-      )
-
+      ),
+      drawer: Drawer(
+        child: Padding(
+          padding: EdgeInsets.only(left: 15, top: 20),
+          child: ListTile(
+            leading: Icon(Icons.info),
+            title: Text("Informações"),
+          ),
+        ),
+      ),
     );
   }
 }
