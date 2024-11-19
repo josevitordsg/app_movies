@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:app_movies/models/category.dart';
+import 'package:app_movies/models/movie.dart';
 
 const moviesCategories = [
   Category(
@@ -22,9 +23,7 @@ const moviesCategories = [
 const movies = [
   Movie(
     id: 'm1',
-    category: [
-      'c1',
-    ],
+    category: 'c1',
     title: 'Baby Driver',
     release: '2017',
     duration: '113 mins',
@@ -36,9 +35,7 @@ const movies = [
   ),
   Movie(
     id: 'm2',
-    category: [
-      'c1',
-    ],
+    category: 'c1',
     title: 'John Wick',
     release: '2014',
     duration: '101 mins',
@@ -49,9 +46,7 @@ const movies = [
   ),
   Movie(
     id: 'm3',
-    category: [
-      'c1',
-    ],
+    category: 'c1',
     title: 'Mission: Impossible',
     release: '1996',
     duration: '110 mins',
@@ -62,9 +57,7 @@ const movies = [
   ),
   Movie(
     id: 'm4',
-    category: [
-      'c1',
-    ],
+    category: 'c1',
     title: 'The Fast and the Furious: Tokyo Drift',
     release: '2006',
     duration: '104 mins',
@@ -75,9 +68,7 @@ const movies = [
   ),
   Movie(
     id: 'm5',
-    category: [
-      'c2',
-    ],
+    category: 'c2',
     title: 'Superbad',
     release: '2007',
     duration: '113 mins',
@@ -88,9 +79,7 @@ const movies = [
   ),
   Movie(
     id: 'm6',
-    category: [
-      'c2',
-    ],
+    category: 'c2',
     title: 'White Chicks',
     release: '2004',
     duration: '109 mins',
@@ -101,9 +90,7 @@ const movies = [
   ),
   Movie(
     id: 'm7',
-    category: [
-      'c2',
-    ],
+    category: 'c2',
     title: 'Grown Ups',
     release: '2010',
     duration: '102 mins',
@@ -114,9 +101,7 @@ const movies = [
   ),
   Movie(
     id: 'm8',
-    category: [
-      'c3',
-    ],
+    category: 'c3',
     title: 'Halloween',
     release: '1978',
     duration: '91 mins',
@@ -127,9 +112,7 @@ const movies = [
   ),
   Movie(
     id: 'm9',
-    category: [
-      'c3',
-    ],
+    category: 'c3',
     title: 'It',
     release: '2017',
     duration: '135 mins',
@@ -140,13 +123,12 @@ const movies = [
   ),
   Movie(
     id: 'm10',
-    category: [
-      'c4',
-    ],
+    category: 'c4',
     title: '',
     release: '',
     duration: '',
     director: '',
+    posterUrl: '',
     synopsis: '',
   ),
 ];
