@@ -65,8 +65,12 @@ class _TelaInicialState extends State<TelaInicial> {
         ),
       ),
       body: GridView(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2
+          crossAxisCount: 2,
+          crossAxisSpacing: 9,
+          mainAxisSpacing: 9,
+          childAspectRatio: 0.69
         ),
         children: [  
           for(Category categoria in moviesCategories)
@@ -78,29 +82,38 @@ class _TelaInicialState extends State<TelaInicial> {
                 );
                 
               },
-              splashColor: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(16),
+              hoverColor: Colors.red.withOpacity(0.5),
+              splashColor: Colors.red,
+              borderRadius: BorderRadius.circular(17),
               child: Card(
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child:Image.asset(
-                        categoria.imagem,
-                        fit:BoxFit.cover
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(17)
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(17),
+                  child: Stack(
+                    children: [
+                        Image.asset(
+                          categoria.imagem,
+                          fit:BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                      Container(
+                        color: Colors.black.withOpacity(0.7),
+                      ),
+                      Positioned(
+                        bottom: 12,
+                        left: 12,
+                        child: Container(
+                          child: Text(
+                          categoria.title,
+                          style: TextStyle(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w900,)
+                        ) 
                       )
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      child: Container(
-                        color: Colors.black87,
-                        child: Text(
-                        categoria.title,
-                        style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,)
-                      ) 
-                    )
-                    )
-                  ]
+                      )
+                    ]
+                  ),
                 ) 
                   
                 ),

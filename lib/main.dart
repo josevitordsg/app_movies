@@ -33,7 +33,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (ctx)=> const MainScreen(),
         '/browse': (ctx)=> const TelaInicial()
-        
       }
       ,
     );
