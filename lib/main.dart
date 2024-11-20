@@ -1,5 +1,4 @@
 import 'package:app_movies/screens/main_screen.dart';
-import 'package:app_movies/screens/movies.dart';
 import 'package:app_movies/screens/tela_inicial.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
