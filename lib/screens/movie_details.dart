@@ -1,4 +1,6 @@
+import 'package:app_movies/data/app_data.dart';
 import 'package:app_movies/data/style_appbar.dart';
+import 'package:app_movies/utils/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/widgets/movie_card.dart';
@@ -18,10 +20,10 @@ class MovieDetails extends StatefulWidget {
 }
 
 class _MovieDetailsState extends State<MovieDetails> {
-  bool isfavorite = false;
   
   @override
   Widget build(BuildContext context) {
+    bool isFavorite = listFavoritesMovie.contains(widget.movie);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -36,10 +38,19 @@ class _MovieDetailsState extends State<MovieDetails> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.star)
+            onPressed: () {
+              if(listFavoritesMovie.contains(widget.movie)){
+                listFavoritesMovie.remove(widget.movie);
+              }else{
+                listFavoritesMovie.add(widget.movie);
+              }
+              setState(() {
+                isFavorite = !isFavorite;
+              });
+            },
+            icon: Icon(isFavorite? Icons.star: Icons.star_border, color: isFavorite? Colors.yellow: Colors.grey,)
           ),
-        ],
+        ], 
       ),
       body: Center(
         child: Column(

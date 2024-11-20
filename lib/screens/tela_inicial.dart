@@ -4,6 +4,7 @@ import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/screens/movies.dart';
 import 'package:app_movies/screens/informations.dart';
 import 'package:app_movies/screens/tela_favoritos.dart';
+import 'package:app_movies/utils/favorites.dart';
 import 'package:app_movies/widgets/maindrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -122,7 +123,7 @@ class _TelaInicialState extends State<TelaInicial> {
         },
       ),
       drawer: Maindrawer(),
-      body: itemSelecionado == 0? GridViewContructor(): TelaFavoritos(favoriteMovies: [])
+      body: itemSelecionado == 0? GridViewContructor(): TelaFavoritos(favoriteMovies: listFavoritesMovie)
       );
   }
 }
