@@ -57,21 +57,28 @@ class _TelaInicialState extends State<TelaInicial> {
         },
       ),
       drawer: Drawer(
-        child: Padding(
-          padding: EdgeInsets.only(left: 15, top: 20),
-          child: ListTile(
-            leading: Icon(Icons.info),
-            title: Text("Informações"),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const InformationsScreen(),
+          child: ListView(
+            padding: EdgeInsets.only(top: 45),
+            children: [
+              ListTile(
+                leading: Icon(Icons.info),
+                title: Text(
+                  "Informations",
+                  style: TextStyle(
+                    fontSize: 18
+                  ),
                 ),
-              );
-            },
+                onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const InformationsScreen(),
+                  ),
+                );
+              },
+            ),
+            ]
           ),
-        ),
       ),
       body: GridView(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
@@ -89,7 +96,6 @@ class _TelaInicialState extends State<TelaInicial> {
                   context,
                   MaterialPageRoute(builder: (context)=>MoviesScreen(title: categoria.title, movies: FilmesporCategoria(categoria.id)))
                 );
-                
               },
               hoverColor: Colors.red.withOpacity(0.5),
               splashColor: Colors.red,

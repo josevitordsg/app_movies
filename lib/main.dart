@@ -12,7 +12,7 @@ final theme = ThemeData(
   ),
   colorScheme: ColorScheme.fromSeed(
     brightness: Brightness.dark,
-    seedColor: const Color.fromARGB(50, 30, 30, 30),
+    seedColor: const Color.fromARGB(50, 30, 30, 30)
   ),
   textTheme: GoogleFonts.robotoTextTheme(),
 );

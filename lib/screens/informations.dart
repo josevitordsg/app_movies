@@ -7,9 +7,12 @@ class InformationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Informations"),
+        title: Text("Informations", style: TextStyle(
+            color: Color.fromARGB(255, 212, 18, 4), fontSize: 17, fontWeight: FontWeight.w800
+            ),
+          ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back,color: Color.fromARGB(255, 212, 18, 4),),
           onPressed: () {
             Navigator.pop(context);
           },
