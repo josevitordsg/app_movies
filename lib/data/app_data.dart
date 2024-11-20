@@ -5,18 +5,22 @@ const moviesCategories = [
   Category(
     id: 'c1',
     title: 'Action',
+    imagem: 'assets/images/acao.jpeg'
   ),
   Category(
     id: 'c2',
     title: 'Comedy',
+    imagem: 'assets/images/comedia.jpeg'
   ),
   Category(
     id: 'c3',
     title: 'Horror',
+    imagem: 'assets/images/terror.jpeg'
   ),
   Category(
     id: 'c4',
     title: 'Sci-Fi',
+    imagem: 'assets/images/interestelar.jpeg'
   ),
 ];
 

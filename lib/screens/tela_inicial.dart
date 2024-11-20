@@ -62,28 +62,32 @@ class _TelaInicialState extends State<TelaInicial> {
               splashColor: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(16),
               child: Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                child: Stack(
                   children: [
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/interestelar.jpeg',
-                        fit: BoxFit.cover,
-                      ),
+                    Positioned.fill(
+                      child:Image.asset(
+                        categoria.imagem,
+                        fit:BoxFit.cover
+                      )
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      child: Container(
+                        color: Colors.black87,
+                        child: Text(
                         categoria.title,
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                      ),
-                    ),
-                  ],
+                        style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,)
+                      ) 
+                    )
+                    )
+                  ]
+                ) 
+                  
                 ),
               )
-            )
-        ],
-      ),
-    );
+          ]
+        )
+      );
   }
 }
