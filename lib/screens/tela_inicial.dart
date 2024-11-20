@@ -2,6 +2,7 @@ import 'package:app_movies/data/app_data.dart';
 import 'package:app_movies/models/category.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/screens/movies.dart';
+import 'package:app_movies/screens/informations.dart';
 import 'package:flutter/material.dart';
 
 class TelaInicial extends StatefulWidget{
@@ -61,6 +62,14 @@ class _TelaInicialState extends State<TelaInicial> {
           child: ListTile(
             leading: Icon(Icons.info),
             title: Text("Informações"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const InformationsScreen(),
+                ),
+              );
+            },
           ),
         ),
       ),
