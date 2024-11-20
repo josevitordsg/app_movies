@@ -8,12 +8,10 @@ class MovieDetails extends StatefulWidget {
     super.key,
     required this.title,
     required this.movie,
-    required this.onToggleFavorite,
   });
 
   final String title;
   final Movie movie;
-  final void Function (Movie movie) onToggleFavorite;
 
   @override
   State<MovieDetails> createState() => _MovieDetailsState();
@@ -38,13 +36,8 @@ class _MovieDetailsState extends State<MovieDetails> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              widget.onToggleFavorite(widget.movie);
-              setState(() {
-                isfavorite = !isfavorite;
-              });
-            },
-            icon: Icon(isfavorite? Icons.star: Icons.star_border, color: isfavorite? Colors.yellow: Colors.grey,)
+            onPressed: () {},
+            icon: const Icon(Icons.star)
           ),
         ],
       ),
