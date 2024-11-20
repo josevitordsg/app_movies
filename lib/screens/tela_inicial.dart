@@ -33,62 +33,9 @@ class _TelaInicialState extends State<TelaInicial> {
     }
     return listaDeFilmes;
   }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(
-            child: Transform.translate(
-              offset: Offset(-18,0),
-              child: Image.asset("assets/images/logo.png"),
-            ),
-          ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_movies),
-            label: 'Categorias'
-            ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Favoritos'
-            )
-        ],
-        unselectedItemColor: Colors.white,
-        currentIndex: itemSelecionado,
-        selectedItemColor: Colors.red,
-        onTap: (index)=>{
-          setState(() {
-            itemSelecionado = index;
-          })
-        },
-      ),
-      drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.only(top: 45),
-            children: [
-              ListTile(
-                leading: Icon(Icons.info),
-                title: Text(
-                  "Informations",
-                  style: TextStyle(
-                    fontSize: 18
-                  ),
-                ),
-                onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const InformationsScreen(),
-                  ),
-                );
-              },
-            ),
-            ]
-          ),
-      ),
-      body: itemSelecionado == 0? GridView(
+
+  Widget GridViewContructor(){
+    return GridView(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -148,7 +95,64 @@ class _TelaInicialState extends State<TelaInicial> {
                 ),
               )
           ]
-        ): TelaFavoritos(favoriteMovies: [])
+        );
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+            child: Transform.translate(
+              offset: Offset(-20,0),
+              child: Image.asset("assets/images/logo.png"),
+            ),
+          ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_movies),
+            label: 'Categorias'
+            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: 'Favoritos'
+            )
+        ],
+        unselectedItemColor: Colors.white,
+        currentIndex: itemSelecionado,
+        selectedItemColor: Colors.red,
+        onTap: (index)=>{
+          setState(() {
+            itemSelecionado = index;
+          })
+        },
+      ),
+      drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.only(top: 45),
+            children: [
+              ListTile(
+                leading: Icon(Icons.info),
+                title: Text(
+                  "Informations",
+                  style: TextStyle(
+                    fontSize: 18
+                  ),
+                ),
+                onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const InformationsScreen(),
+                  ),
+                );
+              },
+            ),
+            ]
+          ),
+      ),
+      body: itemSelecionado == 0? GridViewContructor(): TelaFavoritos(favoriteMovies: [])
       );
   }
 }

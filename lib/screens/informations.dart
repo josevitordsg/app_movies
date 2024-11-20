@@ -8,13 +8,16 @@ class InformationsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text("Informations", style: TextStyle(
-              color: Color.fromARGB(255, 212, 18, 4), fontSize: 17, fontWeight: FontWeight.w800
-              )
-            ),
+          child: Transform.translate(
+            offset: Offset(-20, 0),
+            child: Text("Informations", style: TextStyle(
+                color: Color.fromARGB(255, 212, 18, 4), fontSize: 18, fontWeight: FontWeight.w800
+                )
+              ),
+          ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back,color: Color.fromARGB(255, 212, 18, 4),),
+          icon: const Icon(Icons.arrow_back_ios, color: Color.fromARGB(255, 212, 18, 4),),
           onPressed: () {
             Navigator.pop(context);
           },
