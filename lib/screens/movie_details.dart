@@ -1,8 +1,9 @@
+import 'package:app_movies/data/style_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/widgets/movie_card.dart';
 
-class MovieDetails extends StatelessWidget {
+class MovieDetails extends StatefulWidget {
   const MovieDetails({
     super.key,
     required this.title,
@@ -15,28 +16,47 @@ class MovieDetails extends StatelessWidget {
   final void Function (Movie movie) onToggleFavorite;
 
   @override
+  State<MovieDetails> createState() => _MovieDetailsState();
+}
+
+class _MovieDetailsState extends State<MovieDetails> {
+  bool isfavorite = false;
+  
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(movie.title),
+        leading: IconButton(
+          icon:  iconAppBar,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Center(
+            child: Text(widget.movie.title, style: colorTextAppBar,)
+          
+        ),
         actions: [
           IconButton(
             onPressed: () {
-              onToggleFavorite(movie);
+              widget.onToggleFavorite(widget.movie);
+              setState(() {
+                isfavorite = !isfavorite;
+              });
             },
-            icon: const Icon(Icons.star)
+            icon: Icon(isfavorite? Icons.star: Icons.star_border, color: isfavorite? Colors.yellow: Colors.grey,)
           ),
         ],
       ),
       body: Center(
         child: Column(
           children: [
-            MovieCard(movie: movie),
+            MovieCard(movie: widget.movie),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 11.0),
               child: Text(
-                movie.synopsis,
+                widget.movie.synopsis,
                 style: const TextStyle(
                   fontSize: 18, 
                   color: Colors.white,

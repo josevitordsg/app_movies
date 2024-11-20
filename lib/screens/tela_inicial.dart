@@ -4,7 +4,9 @@ import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/screens/movies.dart';
 import 'package:app_movies/screens/informations.dart';
 import 'package:app_movies/screens/tela_favoritos.dart';
+import 'package:app_movies/widgets/maindrawer.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TelaInicial extends StatefulWidget{
   const TelaInicial ({super.key});
@@ -21,8 +23,6 @@ class _TelaInicialState extends State<TelaInicial> {
     movie.isFavorite = !movie.isFavorite;
   });
 }
-
-
   List<Movie> FilmesporCategoria(String idCategoria){
   
   List<Movie> listaDeFilmes = [];
@@ -84,14 +84,13 @@ class _TelaInicialState extends State<TelaInicial> {
                         child: Container(
                           child: Text(
                           categoria.title,
-                          style: TextStyle(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w900,)
+                          style: GoogleFonts.roboto(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w800,)
                         ) 
                       )
                       )
                     ]
                   ),
                 ) 
-                  
                 ),
               )
           ]
@@ -128,30 +127,7 @@ class _TelaInicialState extends State<TelaInicial> {
           })
         },
       ),
-      drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.only(top: 45),
-            children: [
-              ListTile(
-                leading: Icon(Icons.info),
-                title: Text(
-                  "Informations",
-                  style: TextStyle(
-                    fontSize: 18
-                  ),
-                ),
-                onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const InformationsScreen(),
-                  ),
-                );
-              },
-            ),
-            ]
-          ),
-      ),
+      drawer: Maindrawer(),
       body: itemSelecionado == 0? GridViewContructor(): TelaFavoritos(favoriteMovies: [])
       );
   }

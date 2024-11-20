@@ -1,3 +1,4 @@
+import 'package:app_movies/utils/create_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/widgets/movie_card.dart';
@@ -79,15 +80,7 @@ class MoviesScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      appBar: CreateAppBar(context, title),
       body: content
     );
   }

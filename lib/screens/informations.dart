@@ -1,3 +1,5 @@
+import 'package:app_movies/data/style_appbar.dart';
+import 'package:app_movies/utils/create_appbar.dart';
 import 'package:flutter/material.dart';
 
 class InformationsScreen extends StatelessWidget {
@@ -6,23 +8,7 @@ class InformationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Transform.translate(
-            offset: Offset(-20, 0),
-            child: Text("Informations", style: TextStyle(
-                color: Color.fromARGB(255, 212, 18, 4), fontSize: 18, fontWeight: FontWeight.w800
-                )
-              ),
-          ),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Color.fromARGB(255, 212, 18, 4),),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      appBar: CreateAppBar(context, "Information"),
       body: const Padding(
         padding: EdgeInsets.all(16),
         child: Column(
@@ -32,7 +18,7 @@ class InformationsScreen extends StatelessWidget {
             Text(
               "Pobreflix is ​​the perfect streaming platform for anyone who wants enjoy good films and series without spending a fortune. Common diverse catalog that ranges from cinema classics to productions independent, Pobreflix is ​​accessible, practical and made for those who love quality entertainment.",
               style: TextStyle(
-                fontSize: 18, 
+                fontSize: 17, 
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -50,7 +36,7 @@ class InformationsScreen extends StatelessWidget {
             Text(
               "José Vitor dos Santos Gomes\nThalyson Elione",
               style: TextStyle(
-                fontSize: 18, 
+                fontSize: 17, 
                 color: Colors.white,
               ),
             ),
