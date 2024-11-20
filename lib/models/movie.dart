@@ -1,5 +1,5 @@
 class Movie {
-  Movie({
+  const Movie({
     required this.id,
     required this.category,
     required this.title,
@@ -8,7 +8,6 @@ class Movie {
     required this.director,
     required this.posterUrl,
     required this.synopsis,
-    this.isFavorite = false
   });
 
   final String id;
@@ -19,5 +18,4 @@ class Movie {
   final String director;
   final String posterUrl;
   final String synopsis;
-  bool isFavorite;
 }

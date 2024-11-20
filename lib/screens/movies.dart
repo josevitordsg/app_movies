@@ -8,24 +8,10 @@ class MoviesScreen extends StatelessWidget {
     super.key,
     required this.title,
     required this.movies,
-    required this.onToggleFavorite,
   });
 
   final String title;
   final List<Movie> movies;
-  final void Function(Movie movie) onToggleFavorite;
-
-  void selectMovie(BuildContext context, Movie movie) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (ctx) => MovieDetails(
-          title: title, 
-          movie: movie, 
-          onToggleFavorite: onToggleFavorite,
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +52,7 @@ class MoviesScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => MovieDetails(
                     title: title,
-                    movie: movies[index],
-                    onToggleFavorite: onToggleFavorite,
-                  ),
+                    movie: movies[index]),
                 ),
               );
             },

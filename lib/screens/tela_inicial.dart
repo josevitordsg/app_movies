@@ -16,13 +16,6 @@ class TelaInicial extends StatefulWidget{
 class _TelaInicialState extends State<TelaInicial> {
   int itemSelecionado = 0;
 
-  void toggleFavorite(Movie movie) {
-  setState(() {
-    movie.isFavorite = !movie.isFavorite;
-  });
-}
-
-
   List<Movie> FilmesporCategoria(String idCategoria){
   
   List<Movie> listaDeFilmes = [];
@@ -106,7 +99,6 @@ class _TelaInicialState extends State<TelaInicial> {
                     builder: (context)=>MoviesScreen(
                       title: categoria.title,
                       movies: FilmesporCategoria(categoria.id),
-                      onToggleFavorite: toggleFavorite,
                     )
                   )
                 );

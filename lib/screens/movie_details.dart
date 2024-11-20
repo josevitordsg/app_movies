@@ -7,12 +7,10 @@ class MovieDetails extends StatelessWidget {
     super.key,
     required this.title,
     required this.movie,
-    required this.onToggleFavorite,
   });
 
   final String title;
   final Movie movie;
-  final void Function (Movie movie) onToggleFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +19,7 @@ class MovieDetails extends StatelessWidget {
         title: Text(movie.title),
         actions: [
           IconButton(
-            onPressed: () {
-              onToggleFavorite(movie);
-            },
+            onPressed: () {},
             icon: const Icon(Icons.star)
           ),
         ],

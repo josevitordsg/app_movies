@@ -24,7 +24,7 @@ const moviesCategories = [
   ),
 ];
 
-var movies = [
+const movies = [
   Movie(
     id: 'm1',
     category: 'c1',
