@@ -125,14 +125,5 @@ const movies = [
     synopsis: 
       'A group of bullied kids band together to destroy a shape-shifting monster that disguises itself as a clown and preys on children.',
   ),
-  Movie(
-    id: 'm10',
-    category: 'c4',
-    title: '',
-    release: '',
-    duration: '',
-    director: '',
-    posterUrl: '',
-    synopsis: '',
-  ),
+  
 ];

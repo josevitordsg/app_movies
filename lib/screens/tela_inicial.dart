@@ -1,5 +1,7 @@
 import 'package:app_movies/data/app_data.dart';
 import 'package:app_movies/models/category.dart';
+import 'package:app_movies/models/movie.dart';
+import 'package:app_movies/screens/movies.dart';
 import 'package:flutter/material.dart';
 
 class TelaInicial extends StatefulWidget{
@@ -11,6 +13,17 @@ class TelaInicial extends StatefulWidget{
   
 class _TelaInicialState extends State<TelaInicial> {
   int itemSelecionado = 0;
+
+  List<Movie> FilmesporCategoria(String idCategoria){
+  
+  List<Movie> listaDeFilmes = [];
+    for(int i = 0; i< movies.length; i++){
+      if(movies[i].category == idCategoria){
+        listaDeFilmes.add(movies[i]);
+      }
+    }
+    return listaDeFilmes;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +71,13 @@ class _TelaInicialState extends State<TelaInicial> {
         children: [  
           for(Category categoria in moviesCategories)
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context)=>MoviesScreen(title: categoria.title, movies: FilmesporCategoria(categoria.id)))
+                );
+                
+              },
               splashColor: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(16),
               child: Card(
