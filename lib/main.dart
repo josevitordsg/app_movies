@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
-  bottomAppBarTheme: BottomAppBarTheme(
+  bottomAppBarTheme: const BottomAppBarTheme(
     color: Color.fromARGB(50, 30, 30, 30),
     shadowColor: Colors.black
   ),
