@@ -3,6 +3,7 @@ import 'package:app_movies/models/category.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/screens/movies.dart';
 import 'package:app_movies/screens/informations.dart';
+import 'package:app_movies/screens/tela_favoritos.dart';
 import 'package:flutter/material.dart';
 
 class TelaInicial extends StatefulWidget{
@@ -80,7 +81,7 @@ class _TelaInicialState extends State<TelaInicial> {
             ]
           ),
       ),
-      body: GridView(
+      body: itemSelecionado == 0? GridView(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -134,7 +135,7 @@ class _TelaInicialState extends State<TelaInicial> {
                 ),
               )
           ]
-        )
+        ): TelaFavoritos(favoriteMovies: [])
       );
   }
 }

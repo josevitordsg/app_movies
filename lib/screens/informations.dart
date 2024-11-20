@@ -7,10 +7,12 @@ class InformationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Informations", style: TextStyle(
-            color: Color.fromARGB(255, 212, 18, 4), fontSize: 17, fontWeight: FontWeight.w800
+        title: Center(
+          child: Text("Informations", style: TextStyle(
+              color: Color.fromARGB(255, 212, 18, 4), fontSize: 17, fontWeight: FontWeight.w800
+              )
             ),
-          ),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back,color: Color.fromARGB(255, 212, 18, 4),),
           onPressed: () {

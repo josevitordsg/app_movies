@@ -30,15 +30,6 @@ class TelaFavoritos extends StatelessWidget {
                             )
                       );
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Back'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pop(context);
-          },
-        ),
-      ),
       body: content,
     );
   }
