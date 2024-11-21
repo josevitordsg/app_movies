@@ -8,11 +8,11 @@ class Maindrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
           child: ListView(
-            padding: EdgeInsets.only(top: 45),
+            padding: const EdgeInsets.only(top: 45),
             children: [
               ListTile(
-                leading: Icon(Icons.info),
-                title: Text(
+                leading: const Icon(Icons.info),
+                title: const Text(
                   "Informations",
                   style: TextStyle(
                     fontSize: 17

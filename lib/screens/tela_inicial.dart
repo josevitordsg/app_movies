@@ -7,7 +7,6 @@ import 'package:app_movies/screens/tela_favoritos.dart';
 import 'package:app_movies/utils/favorites.dart';
 import 'package:app_movies/widgets/maindrawer.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TelaInicial extends StatefulWidget{
   const TelaInicial ({super.key});
@@ -79,7 +78,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         child: Container(
                           child: Text(
                           categoria.title,
-                          style: GoogleFonts.roboto(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w800,)
+                          style:TextStyle(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w800,)
                         ) 
                       )
                       )
@@ -122,7 +121,7 @@ class _TelaInicialState extends State<TelaInicial> {
           })
         },
       ),
-      drawer: Maindrawer(),
+      drawer: const Maindrawer(),
       body: itemSelecionado == 0? GridViewContructor(): TelaFavoritos(favoriteMovies: listFavoritesMovie)
       );
   }

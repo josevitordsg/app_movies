@@ -1,8 +1,6 @@
 import 'package:app_movies/screens/main_screen.dart';
 import 'package:app_movies/screens/tela_inicial.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 final theme = ThemeData(
   useMaterial3: true,
   bottomAppBarTheme: const BottomAppBarTheme(
@@ -13,7 +11,7 @@ final theme = ThemeData(
     brightness: Brightness.dark,
     seedColor: const Color.fromARGB(50, 30, 30, 30)
   ),
-  textTheme: GoogleFonts.robotoTextTheme(),
+  fontFamily: 'Helvetica'
 );
 
 void main() {
