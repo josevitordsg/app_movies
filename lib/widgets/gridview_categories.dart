@@ -58,7 +58,7 @@ class GridviewCategorias extends StatelessWidget {
                           height: double.infinity,
                         ),
                       Container(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.black.withOpacity(0.4),
                       ),
                       Positioned(
                         bottom: 12,
