@@ -7,7 +7,7 @@ class InformationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CreateAppBar(context, "Information"),
+      appBar: createAppBar(context, "Information"),
       body: const Padding(
         padding: EdgeInsets.all(16),
         child: Column(

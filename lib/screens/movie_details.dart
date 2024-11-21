@@ -1,4 +1,3 @@
-import 'package:app_movies/data/app_data.dart';
 import 'package:app_movies/data/style_appbar.dart';
 import 'package:app_movies/utils/favorites.dart';
 import 'package:flutter/material.dart';

@@ -3,18 +3,18 @@ import 'package:app_movies/models/category.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/screens/movies.dart';
 import 'package:flutter/material.dart';
-class GridviewCategorias extends StatelessWidget {
-  const GridviewCategorias({super.key});
+class GridviewCategories extends StatelessWidget {
+  const GridviewCategories({super.key});
   
-  List<Movie> FilmesporCategoria(String idCategoria){
+  List<Movie> moviesbycategory(String idCategorie){
   
-  List<Movie> listaDeFilmes = [];
+  List<Movie> moviesList = [];
     for(int i = 0; i< movies.length; i++){
-      if(movies[i].category == idCategoria){
-        listaDeFilmes.add(movies[i]);
+      if(movies[i].category == idCategorie){
+        moviesList.add(movies[i]);
       }
     }
-    return listaDeFilmes;
+    return moviesList;
   }
   @override
   Widget build(BuildContext context) {
@@ -27,15 +27,15 @@ class GridviewCategorias extends StatelessWidget {
           childAspectRatio: 0.69
         ),
         children: [  
-          for(Category categoria in moviesCategories)
+          for(Category categorie in moviesCategories)
             InkWell(
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context)=>MoviesScreen(
-                      title: categoria.title,
-                      movies: FilmesporCategoria(categoria.id),
+                      title: categorie.title,
+                      movies: moviesbycategory(categorie.id),
                     )
                   )
                 );
@@ -52,7 +52,7 @@ class GridviewCategorias extends StatelessWidget {
                   child: Stack(
                     children: [
                         Image.asset(
-                          categoria.imagem,
+                          categorie.image,
                           fit:BoxFit.cover,
                           width: double.infinity,
                           height: double.infinity,
@@ -65,7 +65,7 @@ class GridviewCategorias extends StatelessWidget {
                         left: 12,
                         child: Container(
                           child: Text(
-                          categoria.title,
+                          categorie.title,
                           style: const TextStyle(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w800,)
                         ) 
                       )

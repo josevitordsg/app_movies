@@ -22,7 +22,7 @@ class MoviesScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Nothing to show!',
+            'The films appeared here.',
             style: Theme.of(context)
             .textTheme.headlineLarge!.copyWith(
               color: Theme.of(context)
@@ -64,7 +64,7 @@ class MoviesScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: CreateAppBar(context, title),
+      appBar: createAppBar(context, title),
       body: content
     );
   }

@@ -16,7 +16,6 @@ class MovieCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
       ),
-      //FAZER NAVEGAÇÃO
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

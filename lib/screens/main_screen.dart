@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
               onPressed: (){
                 Navigator.pushNamed(context,'/browse');
               }, 
-              child: const Text('Entrar',style: TextStyle(fontSize: 15, color: Colors.white),)
+              child: const Text('Login',style: TextStyle(fontSize: 15, color: Colors.white),)
             )
           ],
         )
