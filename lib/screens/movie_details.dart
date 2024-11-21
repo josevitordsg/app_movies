@@ -75,10 +75,10 @@ class _MovieDetailsState extends State<MovieDetails> {
                 ),
                 elevation: 6.0,
                 backgroundColor: const Color.fromARGB(255, 212, 18, 4),
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 140),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 140),
               ),
               onPressed: () {}, 
-              child: Text('Watch',style: TextStyle(fontSize: 15, color: Colors.white),)
+              child: const Text('Watch',style: TextStyle(fontSize: 15, color: Colors.white),)
             ),
             const SizedBox(
               height: 18,

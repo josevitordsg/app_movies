@@ -19,13 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Center(
             child: Transform.translate(
-              offset: Offset(-20,0),
+              offset: const Offset(-20,0),
               child: Image.asset("assets/images/logo.png"),
             ),
           ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.local_movies),
             label: 'Categorias'
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       drawer: const Maindrawer(),
-      body: itemSelecionado == 0? GridviewCategorias(): FavoriteScreen(favoriteMovies: listFavoritesMovie)
+      body: itemSelecionado == 0? const GridviewCategorias(): FavoriteScreen(favoriteMovies: listFavoritesMovie)
       );
   }
 }

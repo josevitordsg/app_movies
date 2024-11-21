@@ -1,4 +1,3 @@
-import 'package:app_movies/data/style_appbar.dart';
 import 'package:app_movies/utils/create_appbar.dart';
 import 'package:flutter/material.dart';
 
