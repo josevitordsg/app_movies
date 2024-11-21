@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget{
 }
   
 class _HomeScreenState extends State<HomeScreen> {
-  int itemSelecionado = 0;
+  int selectedItem = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,24 +28,24 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.local_movies),
-            label: 'Categorias'
+            label: 'Categories'
             ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            label: 'Favoritos'
+            label: 'Favorites'
             )
         ],
         unselectedItemColor: Colors.white,
-        currentIndex: itemSelecionado,
+        currentIndex: selectedItem,
         selectedItemColor: Colors.red,
         onTap: (index)=>{
           setState(() {
-            itemSelecionado = index;
+            selectedItem = index;
           })
         },
       ),
       drawer: const Maindrawer(),
-      body: itemSelecionado == 0? const GridviewCategorias(): FavoriteScreen(favoriteMovies: listFavoritesMovie)
+      body: selectedItem == 0? const GridviewCategories(): FavoriteScreen(favoriteMovies: listFavoritesMovie)
       );
   }
 }
