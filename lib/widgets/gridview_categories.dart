@@ -2,22 +2,10 @@ import 'package:app_movies/data/app_data.dart';
 import 'package:app_movies/models/category.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/screens/movies.dart';
-import 'package:app_movies/screens/informations.dart';
-import 'package:app_movies/screens/tela_favoritos.dart';
-import 'package:app_movies/utils/favorites.dart';
-import 'package:app_movies/widgets/maindrawer.dart';
 import 'package:flutter/material.dart';
-
-class TelaInicial extends StatefulWidget{
-  const TelaInicial ({super.key});
-
-  @override
-  State<TelaInicial> createState() => _TelaInicialState();
-}
+class GridviewCategorias extends StatelessWidget {
+  const GridviewCategorias({super.key});
   
-class _TelaInicialState extends State<TelaInicial> {
-  int itemSelecionado = 0;
-
   List<Movie> FilmesporCategoria(String idCategoria){
   
   List<Movie> listaDeFilmes = [];
@@ -28,10 +16,10 @@ class _TelaInicialState extends State<TelaInicial> {
     }
     return listaDeFilmes;
   }
-
-  Widget GridViewContructor(){
+  @override
+  Widget build(BuildContext context) {
     return GridView(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 9,
@@ -78,7 +66,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         child: Container(
                           child: Text(
                           categoria.title,
-                          style:TextStyle(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w800,)
+                          style: const TextStyle(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w800,)
                         ) 
                       )
                       )
@@ -89,40 +77,5 @@ class _TelaInicialState extends State<TelaInicial> {
               )
           ]
         );
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(
-            child: Transform.translate(
-              offset: Offset(-20,0),
-              child: Image.asset("assets/images/logo.png"),
-            ),
-          ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_movies),
-            label: 'Categorias'
-            ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Favoritos'
-            )
-        ],
-        unselectedItemColor: Colors.white,
-        currentIndex: itemSelecionado,
-        selectedItemColor: Colors.red,
-        onTap: (index)=>{
-          setState(() {
-            itemSelecionado = index;
-          })
-        },
-      ),
-      drawer: const Maindrawer(),
-      body: itemSelecionado == 0? GridViewContructor(): TelaFavoritos(favoriteMovies: listFavoritesMovie)
-      );
   }
 }

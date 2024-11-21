@@ -1,5 +1,5 @@
 import 'package:app_movies/screens/main_screen.dart';
-import 'package:app_movies/screens/tela_inicial.dart';
+import 'package:app_movies/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 final theme = ThemeData(
   useMaterial3: true,
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (ctx)=> const MainScreen(),
-        '/browse': (ctx)=> const TelaInicial()
+        '/browse': (ctx)=> const HomeScreen()
       }
       ,
     );

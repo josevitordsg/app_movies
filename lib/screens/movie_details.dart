@@ -79,6 +79,9 @@ class _MovieDetailsState extends State<MovieDetails> {
               ),
               onPressed: () {}, 
               child: Text('Watch',style: TextStyle(fontSize: 15, color: Colors.white),)
+            ),
+            const SizedBox(
+              height: 18,
             )
           ],
         ),

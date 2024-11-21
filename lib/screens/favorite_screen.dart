@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 
 
-class TelaFavoritos extends StatelessWidget {
-  const TelaFavoritos({
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen({
     super.key,
     required this.favoriteMovies
   });
@@ -17,19 +17,7 @@ class TelaFavoritos extends StatelessWidget {
     Widget content = favoriteMovies.isNotEmpty
                     ? ListView.builder(
                       itemCount: favoriteMovies.length,
-                      itemBuilder: (context,index) => GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MovieDetails(
-                              title: favoriteMovies[index].title,
-                              movie: favoriteMovies[index]),
-                            ),
-                          );
-                        },
-                      child: MovieCard(movie: favoriteMovies[index]),
-                      )
+                      itemBuilder: (context,index) => MovieCard(movie: favoriteMovies[index]),
                     )
                     : Center(
                         child: 
