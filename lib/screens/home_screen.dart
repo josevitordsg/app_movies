@@ -1,5 +1,4 @@
 import 'package:app_movies/screens/favorite_screen.dart';
-import 'package:app_movies/utils/favorites.dart';
 import 'package:app_movies/widgets/gridview_categories.dart';
 import 'package:app_movies/widgets/maindrawer.dart';
 import 'package:flutter/material.dart';
