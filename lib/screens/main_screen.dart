@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 elevation: 6.0,
                 backgroundColor: const Color.fromARGB(255, 212, 18, 4),
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 130),
+                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 130),
               ),
               onPressed: (){
                 Navigator.pushNamed(context,'/browse');

@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       drawer: const Maindrawer(),
-      body: selectedItem == 0? const GridviewCategories(): FavoriteScreen(favoriteMovies: listFavoritesMovie)
+      body: selectedItem == 0? const GridviewCategories(): FavoriteScreen()
       );
   }
 }

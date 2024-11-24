@@ -19,7 +19,7 @@ class MovieDetails extends StatefulWidget {
 }
 
 class _MovieDetailsState extends State<MovieDetails> {
-  
+  bool favoriteListChanged = false;
   @override
   Widget build(BuildContext context) {
     bool isFavorite = listFavoritesMovie.contains(widget.movie);
@@ -28,7 +28,7 @@ class _MovieDetailsState extends State<MovieDetails> {
         leading: IconButton(
           icon:  iconAppBar,
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context, favoriteListChanged);
           },
         ),
         title: Center(
@@ -40,8 +40,10 @@ class _MovieDetailsState extends State<MovieDetails> {
             onPressed: () {
               if(listFavoritesMovie.contains(widget.movie)){
                 listFavoritesMovie.remove(widget.movie);
+                favoriteListChanged = true;
               }else{
                 listFavoritesMovie.add(widget.movie);
+                favoriteListChanged = false;
               }
               setState(() {
                 isFavorite = !isFavorite;
