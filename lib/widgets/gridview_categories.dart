@@ -29,7 +29,7 @@ class GridviewCategories extends StatelessWidget {
         children: [  
           for(Category categorie in moviesCategories)
             InkWell(
-              onTap: () {
+              onTap: (){
                 Navigator.push(
                   context,
                   MaterialPageRoute(

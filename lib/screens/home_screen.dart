@@ -1,3 +1,4 @@
+import 'package:app_movies/screens/add_movies.dart';
 import 'package:app_movies/screens/favorite_screen.dart';
 import 'package:app_movies/utils/favorites.dart';
 import 'package:app_movies/widgets/gridview_categories.dart';
@@ -23,6 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Image.asset("assets/images/logo.png"),
             ),
           ),
+            actions: [
+              IconButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context)=>
+                    AddMovies()
+                  )
+                );
+                }, 
+                icon: Icon(Icons.add)
+              )
+              
+            ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [

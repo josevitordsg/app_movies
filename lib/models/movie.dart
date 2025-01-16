@@ -5,7 +5,6 @@ class Movie {
     required this.title,
     required this.release,
     required this.duration,
-    required this.director,
     required this.posterUrl,
     required this.synopsis,
   });
@@ -15,7 +14,6 @@ class Movie {
   final String title;
   final String release;
   final String duration;
-  final String director;
   final String posterUrl;
   final String synopsis;
 }

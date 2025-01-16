@@ -51,7 +51,7 @@ class MovieCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      movie.duration,
+                      movie.duration+' mins',
                       style: const TextStyle(
                         color: Colors.white,
                       ),

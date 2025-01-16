@@ -1,3 +1,4 @@
+import 'package:app_movies/screens/add_movies.dart';
 import 'package:app_movies/screens/main_screen.dart';
 import 'package:app_movies/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (ctx)=> const MainScreen(),
-        '/browse': (ctx)=> const HomeScreen()
+        '/browse': (ctx)=> const HomeScreen(),
       }
       ,
     );
