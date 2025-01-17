@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -10,6 +12,59 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
+
+  final Uri firebaseUrl = Uri.https(
+    'projetoapppobreflix-default-rtdb.firebaseio.com',
+    '/users.json',
+  );
+
+  Future<bool> _validateCredentials(String username, String password) async {
+    try {
+      final response = await http.get(firebaseUrl);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = jsonDecode(response.body);
+        for (var user in data.values) {
+          if (user['username'] == username && user['password'] == password) {
+            return true;
+          }
+        }
+      }
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  void _login() async {
+    final username = _usernameController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (username.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Todos os campos são obrigatórios!')),
+      );
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    final isValid = await _validateCredentials(username, password);
+
+    setState(() {
+      _isLoading = false;
+    });
+
+    if (isValid) {
+      Navigator.pushNamed(context, '/browse');
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Credenciais inválidas!')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.1),
-                  hintText: 'Username',
+                  hintText: 'Nome de usuário',
                   hintStyle: const TextStyle(color: Colors.white),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -45,7 +100,7 @@ class _MainScreenState extends State<MainScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.1),
-                  hintText: 'Password',
+                  hintText: 'Senha',
                   hintStyle: const TextStyle(color: Colors.white),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -63,14 +118,17 @@ class _MainScreenState extends State<MainScreen> {
                   backgroundColor: const Color.fromARGB(255, 212, 18, 4),
                   padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 130),
                 ),
-                onPressed: () {
-                  // Ação de login pode ser realizada aqui, como verificar as credenciais
-                  Navigator.pushNamed(context, '/browse');
-                },
-                child: const Text(
-                  'Login',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
+                onPressed: _isLoading ? null : _login,
+                child: _isLoading
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(color: Colors.white),
+                      )
+                    : const Text(
+                        'Login',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
               ),
               const SizedBox(height: 15),
               ElevatedButton(
@@ -83,7 +141,6 @@ class _MainScreenState extends State<MainScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 113),
                 ),
                 onPressed: () {
-                  // Ação de login pode ser realizada aqui, como verificar as credenciais
                   Navigator.pushNamed(context, '/create-account');
                 },
                 child: const Text(

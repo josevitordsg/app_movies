@@ -3,6 +3,7 @@ import 'package:app_movies/screens/add_movies.dart';
 import 'package:app_movies/screens/favorite_screen.dart';
 import 'package:app_movies/widgets/gridview_categories.dart';
 import 'package:app_movies/widgets/maindrawer.dart';
+import 'package:app_movies/screens/list_users.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -44,7 +45,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 );
                 }, 
                 icon: Icon(Icons.add)
-              )
+              ),
+              IconButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context)=>
+                    const ListUsers()
+                  )
+                );
+                }, 
+                icon: Icon(Icons.person)
+              ),
               
             ],
       ),
