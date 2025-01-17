@@ -1,45 +1,39 @@
+import 'package:app_movies/models/movie.dart';
+import 'package:app_movies/providers/listFavoriteMovies.dart';
 import 'package:app_movies/screens/movie_details.dart';
-import 'package:app_movies/utils/favorites.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:app_movies/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 
 
 
-class FavoriteScreen extends StatefulWidget {
+class FavoriteScreen extends ConsumerStatefulWidget {
   const FavoriteScreen({
     super.key,
   });
   @override
-  State<FavoriteScreen> createState() => _FavoriteScreenState();
+  ConsumerState<FavoriteScreen> createState() => _FavoriteScreenState();
 }
-class _FavoriteScreenState extends State<FavoriteScreen> {
+class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
   
-  Future<void> navigateToFavoriteMovie(index) async{
-
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context)=> 
-        MovieDetails(
-        title: listFavoritesMovie[index].title, 
-        movie: listFavoritesMovie[index]
-        )
-      )
-    );
-    if(result == true){
-      setState((){
-      });
-    }
-  }
   @override
   Widget build(BuildContext context) {
-    Widget content = listFavoritesMovie.isNotEmpty
+    List<Movie> listFavoriteMovies = ref.watch(listFavoritesMovie);
+    Widget content = listFavoriteMovies.isNotEmpty
                     ? ListView.builder(
-                      itemCount: listFavoritesMovie.length,
+                      itemCount: listFavoriteMovies.length,
                       itemBuilder: (context,index) => GestureDetector(
                         onTap: (){
-                          navigateToFavoriteMovie(index);
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                              builder:(context)=>MovieDetails(
+                                movie: listFavoriteMovies[index], 
+                                title: listFavoriteMovies[index].title) 
+                            )
+                          );
                         },
-                        child: MovieCard(movie: listFavoritesMovie[index])
+                        child: MovieCard(movie: listFavoriteMovies[index])
                       ),
                     )
                     : Center(

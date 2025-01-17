@@ -2,7 +2,7 @@ import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/providers/list_all_movies.dart';
 import 'package:app_movies/screens/film_management.dart';
 import 'package:app_movies/utils/create_appbar.dart';
-import 'package:app_movies/utils/favorites.dart';
+
 import 'package:app_movies/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;

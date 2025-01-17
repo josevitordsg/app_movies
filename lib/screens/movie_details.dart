@@ -1,10 +1,10 @@
 import 'package:app_movies/data/style_appbar.dart';
-import 'package:app_movies/utils/favorites.dart';
+import 'package:app_movies/providers/listFavoriteMovies.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/widgets/movie_card.dart';
-
-class MovieDetails extends StatefulWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+class MovieDetails extends ConsumerStatefulWidget {
   const MovieDetails({
     super.key,
     required this.title,
@@ -15,20 +15,20 @@ class MovieDetails extends StatefulWidget {
   final Movie movie;
 
   @override
-  State<MovieDetails> createState() => _MovieDetailsState();
+  ConsumerState<MovieDetails> createState() => _MovieDetailsState();
 }
 
-class _MovieDetailsState extends State<MovieDetails> {
-  bool favoriteListChanged = false;
+class _MovieDetailsState extends ConsumerState<MovieDetails> {
   @override
   Widget build(BuildContext context) {
-    bool isFavorite = listFavoritesMovie.contains(widget.movie);
+    List<Movie> currentFavorites = ref.watch(listFavoritesMovie);
+    bool isFavorite = currentFavorites.contains(widget.movie);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon:  iconAppBar,
           onPressed: () {
-            Navigator.pop(context, favoriteListChanged);
+            Navigator.pop(context);
           },
         ),
         title: Center(
@@ -38,15 +38,12 @@ class _MovieDetailsState extends State<MovieDetails> {
         actions: [
           IconButton(
             onPressed: () {
-              if(listFavoritesMovie.contains(widget.movie)){
-                listFavoritesMovie.remove(widget.movie);
-                favoriteListChanged = true;
-              }else{
-                listFavoritesMovie.add(widget.movie);
-                favoriteListChanged = false;
-              }
-              setState(() {
-                isFavorite = !isFavorite;
+              ref.read(listFavoritesMovie.notifier).update((state) {
+                if (state.contains(widget.movie)) {
+                  return state.where((movie) => movie != widget.movie).toList();
+                } else {
+                  return [...state, widget.movie];
+                }
               });
             },
             icon: Icon(isFavorite? Icons.star: Icons.star_border, color: isFavorite? Colors.yellow: Colors.grey,)

@@ -48,7 +48,7 @@ class _CreateAccountState extends State<CreateAccount> {
 
   Future<void> _saveDataToFirebase() async {
     setState(() {
-      _isSending = true; // Inicia o indicador de carregamento
+      _isSending = true; 
     });
 
     try {
@@ -58,6 +58,7 @@ class _CreateAccountState extends State<CreateAccount> {
         body: jsonEncode({
           "username": _sharedData["username"],
           "password": _sharedData["password"],
+          "favorites": []
         }),
       );
 

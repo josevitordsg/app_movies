@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:app_movies/utils/create_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -90,11 +91,7 @@ class _ListUsersState extends State<ListUsers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(30, 30, 30, 50),
-      appBar: AppBar(
-        title: const Text('Usuários'),
-        backgroundColor: const Color.fromRGBO(30, 30, 30, 50),
-      ),
+      appBar: createAppBar(context, 'Users'),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _users.isEmpty

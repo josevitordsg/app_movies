@@ -1,6 +1,6 @@
 import 'package:app_movies/data/style_appbar.dart';
 import 'package:app_movies/providers/list_all_movies.dart';
-import 'package:app_movies/utils/favorites.dart';
+
 import 'package:flutter/material.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/widgets/movie_card.dart';
