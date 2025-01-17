@@ -1,13 +1,14 @@
 import 'package:app_movies/data/app_data.dart';
 import 'package:app_movies/models/category.dart';
 import 'package:app_movies/models/movie.dart';
+import 'package:app_movies/providers/list_all_movies.dart';
 import 'package:app_movies/screens/movies.dart';
 import 'package:flutter/material.dart';
-class GridviewCategories extends StatelessWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+class GridviewCategories extends ConsumerWidget {
   const GridviewCategories({super.key});
   
-  List<Movie> moviesbycategory(String idCategorie){
-  
+  List<Movie> moviesbycategory(List<Movie> movies,String idCategorie){
   List<Movie> moviesList = [];
     for(int i = 0; i< movies.length; i++){
       if(movies[i].category == idCategorie){
@@ -17,7 +18,8 @@ class GridviewCategories extends StatelessWidget {
     return moviesList;
   }
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final movies = ref.watch(listMovies);
     return GridView(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -35,7 +37,7 @@ class GridviewCategories extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context)=>MoviesScreen(
                       title: categorie.title,
-                      movies: moviesbycategory(categorie.id),
+                      movies: moviesbycategory(movies,categorie.id),
                     )
                   )
                 );

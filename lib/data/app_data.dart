@@ -24,7 +24,7 @@ const moviesCategories = [
   ),
 ];
 
-const movies = [
+/*const movies = [
   Movie(
     id: 'm1',
     category: 'c1',
@@ -117,3 +117,4 @@ const movies = [
   ),
   
 ];
+*/

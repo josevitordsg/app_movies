@@ -1,18 +1,29 @@
+import 'package:app_movies/providers/list_all_movies.dart';
 import 'package:app_movies/screens/add_movies.dart';
 import 'package:app_movies/screens/favorite_screen.dart';
 import 'package:app_movies/widgets/gridview_categories.dart';
 import 'package:app_movies/widgets/maindrawer.dart';
 import 'package:flutter/material.dart';
-
-class HomeScreen extends StatefulWidget{
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+class HomeScreen extends ConsumerStatefulWidget{
   const HomeScreen ({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
   
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   int selectedItem = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    if (ref.read(listMovies).isEmpty) {
+      ref.read(listMovies.notifier).loadMovies();
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

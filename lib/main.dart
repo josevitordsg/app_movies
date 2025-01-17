@@ -3,6 +3,7 @@ import 'package:app_movies/screens/main_screen.dart';
 import 'package:app_movies/screens/home_screen.dart';
 import 'package:app_movies/screens/create_account_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 final theme = ThemeData(
   useMaterial3: true,
   bottomAppBarTheme: const BottomAppBarTheme(
@@ -17,7 +18,11 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ProviderScope(
+      child: const MyApp()
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {

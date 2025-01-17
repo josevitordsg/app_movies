@@ -1,19 +1,21 @@
 import 'package:app_movies/data/app_data.dart';
 import 'package:app_movies/models/category.dart';
+import 'package:app_movies/providers/list_all_movies.dart';
 import 'package:app_movies/utils/create_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AddMovies extends StatefulWidget {
+class AddMovies extends ConsumerStatefulWidget {
   AddMovies({super.key});
 
   @override
-  State<AddMovies> createState() => _AddMoviesState();
+  ConsumerState<AddMovies> createState() => _AddMoviesState();
 }
 
-class _AddMoviesState extends State<AddMovies> {
+class _AddMoviesState extends ConsumerState<AddMovies> {
   final _formkey = GlobalKey<FormState>();
   var selectedCategory = 'c1';
   var enteredTitle = '';
@@ -45,6 +47,7 @@ class _AddMoviesState extends State<AddMovies> {
       );
       print(response.body);
       print(response.statusCode);
+      ref.read(listMovies.notifier).loadMovies(); // atualiza o provider
       if(!context.mounted){
         return;
       }
@@ -83,7 +86,7 @@ class _AddMoviesState extends State<AddMovies> {
                     validator: (value) {
                       if (value == null ||
                           value.isEmpty ||
-                          value.trim().length <= 2 ||
+                          value.trim().length < 2 ||
                           value.trim().length > 50) {
                         return 'Must be between 2 and 50 characters';
                       }
