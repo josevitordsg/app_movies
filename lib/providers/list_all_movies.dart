@@ -16,7 +16,6 @@ class MovieListNotifier extends StateNotifier<List<Movie>> {
     try {
       final url = Uri.https('projetoapppobreflix-default-rtdb.firebaseio.com', 'all-movies.json');
       final response = await http.get(url);
-
       if (response.statusCode == 200) {
         final Map<String, dynamic> listData = json.decode(response.body);
         final List<Movie> loadedItems = [];
@@ -40,7 +39,6 @@ class MovieListNotifier extends StateNotifier<List<Movie>> {
       }
     } catch (error) {
       print('Erro ao carregar filmes: $error');
-
     }
   }
 }

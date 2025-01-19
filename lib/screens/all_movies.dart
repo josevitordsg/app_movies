@@ -1,5 +1,7 @@
+import 'package:app_movies/data/style_appbar.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/providers/list_all_movies.dart';
+import 'package:app_movies/screens/add_movies.dart';
 import 'package:app_movies/screens/film_management.dart';
 import 'package:app_movies/utils/create_appbar.dart';
 
@@ -23,7 +25,7 @@ class _AllMoviesState extends ConsumerState<AllMovies> {
     super.initState();
     if (ref.read(listMovies).isEmpty) {
       ref.read(listMovies.notifier).loadMovies();
-      isLoading = false;
+        isLoading =false;
     }else{
       setState(() {
         isLoading = false;
@@ -75,7 +77,34 @@ class _AllMoviesState extends ConsumerState<AllMovies> {
     }
 
     return Scaffold(
-      appBar: createAppBar(context, 'Film Management'),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: iconAppBar,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Center(
+            child: Text(
+          "Film Management",
+          style: colorTextAppBar,
+        )),
+        actions: [
+         IconButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context)=>
+                    AddMovies()
+                  )
+                  );
+                }, 
+                icon: Icon(
+                  Icons.add, 
+                  color: Color.fromARGB(255, 212, 18, 4),
+                )
+              )
+        ],
+      ),
       body: content,
     );
   }

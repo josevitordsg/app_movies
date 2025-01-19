@@ -40,16 +40,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context)=>
-                    AddMovies()
-                  )
-                );
-                }, 
-                icon: Icon(Icons.add)
-              ),
-              IconButton(
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context)=>
                     const ListUsers()
                   )
                 );

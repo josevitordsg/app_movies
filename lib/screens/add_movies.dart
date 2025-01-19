@@ -81,7 +81,6 @@ class _AddMoviesState extends ConsumerState<AddMovies> {
                         style: TextStyle(color: Colors.white38)
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.never
-                      
                     ),
                     validator: (value) {
                       if (value == null ||
@@ -146,7 +145,6 @@ class _AddMoviesState extends ConsumerState<AddMovies> {
                     ),
                   ),
                   TextFormField(
-                    
                     keyboardType:  TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
@@ -272,7 +270,6 @@ class _AddMoviesState extends ConsumerState<AddMovies> {
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.0),
-                    
                   ),
                   elevation: 6.0,
                   padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 80),
