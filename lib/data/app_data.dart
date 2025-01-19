@@ -115,6 +115,47 @@ const moviesCategories = [
     synopsis: 
       'A group of bullied kids band together to destroy a shape-shifting monster that disguises itself as a clown and preys on children.',
   ),
-  
+  Movie(
+    id: 'm1',
+    category: 'c4',
+    title: 'Interstellar',
+    release: '2014',
+    duration: '169',
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/7/6/2/1/117621-interstellar-0-1000-0-1500-crop.jpg?v=7ad89e6666',
+    synopsis: 
+      'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.'
+  ),
+  Movie{
+    id: 'm2'
+    category:"c4"
+    duration:"148"
+    imageUrl:"https://a.ltrbxd.com/resized/sm/upload/sv/95/s9/4j/inception-0-1000-0-1500-crop.jpg?v=30d7224316"
+    release: "2010"
+    synopsis:"A thief who enters the dreams of others to steal secrets from their subconscious is given the invers"
+    title:"Inception"
+  },
+  Movie(
+    id: 'm3',
+    category: 'c4',
+    title: 'The Matrix',
+    release: '1999',
+    duration: '136',
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/5/1/8/51518-the-matrix-0-1000-0-1500-crop.jpg?v=fc7c366afe', 
+    synopsis: 
+      'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.'
+  ),
+   Movie(
+    id: 'm4',
+    category: 'c4',
+    title: 'The Martian',
+    release: '2015',
+    duration: '144',
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/2/6/5/4/3/9/265439-blade-runner-2049-0-1000-0-1500-crop.jpg?v=86735e0bb8', 
+    synopsis: 
+      'An astronaut becomes stranded on Mars after his team assumes he is dead, and must figure out how to survive on the hostile planet.'
+  )
 ];
 */
