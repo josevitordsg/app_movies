@@ -30,6 +30,9 @@ class MovieListNotifier extends StateNotifier<List<Movie>> {
               duration: item.value['duration'],
               posterUrl: item.value['imageUrl'],
               synopsis: item.value['synopsis'],
+              curiosity: item.value['curiosity'],
+              sceneUrl: item.value['sceneUrl'],
+              location: item.value['location'],
             ),
           );
         }
