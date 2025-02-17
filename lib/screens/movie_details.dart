@@ -21,16 +21,18 @@ class MovieDetails extends ConsumerStatefulWidget {
 }
 
 class _MovieDetailsState extends ConsumerState<MovieDetails> {
-  late LatLng movieLocation;
+  LatLng? movieLocation;
 
   @override
   void initState() {
     super.initState();
-    final coordinates = widget.movie.location.split(",");
-    movieLocation = LatLng(
-      double.parse(coordinates[0]),
-      double.parse(coordinates[1]),
-    );
+      if(widget.movie.curiosity!=''){
+         final coordinates = widget.movie.location.split(",");
+          movieLocation = LatLng(
+          double.parse(coordinates[0]),
+          double.parse(coordinates[1]),
+        );
+      }
   }
 
   @override
@@ -86,46 +88,51 @@ class _MovieDetailsState extends ConsumerState<MovieDetails> {
               ),
             ),
             const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: const Text(
-                "Curiosity:",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                widget.movie.curiosity,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            Image.network(widget.movie.sceneUrl),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 200,
-              child: GoogleMap(
-                initialCameraPosition: CameraPosition(
-                  target: movieLocation,
-                  zoom: 12,
-                ),
-                markers: {
-                  Marker(
-                    markerId: MarkerId(widget.movie.title),
-                    position: movieLocation,
-                    infoWindow: InfoWindow(title: widget.movie.title),
+            widget.movie.curiosity != ''?
+               Column(
+                children: [
+                  const  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Text(
+                      "Curiosity:",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                },
-              ),
-            ),
-            const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      widget.movie.curiosity,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Image.network(widget.movie.sceneUrl),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    height: 200,
+                    child: GoogleMap(
+                      initialCameraPosition: CameraPosition(
+                        target: movieLocation!,
+                        zoom: 12,
+                      ),
+                      markers: {
+                        Marker(
+                          markerId: MarkerId(widget.movie.title),
+                          position: movieLocation!,
+                          infoWindow: InfoWindow(title: widget.movie.title),
+                        ),
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ): SizedBox(height: 240,),
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
