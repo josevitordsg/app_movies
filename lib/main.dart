@@ -4,6 +4,8 @@ import 'package:app_movies/screens/home_screen.dart';
 import 'package:app_movies/screens/create_account_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 final theme = ThemeData(
   useMaterial3: true,
   bottomAppBarTheme: const BottomAppBarTheme(
@@ -17,7 +19,9 @@ final theme = ThemeData(
   fontFamily: 'Helvetica'
 );
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     ProviderScope(
       child: const MyApp()

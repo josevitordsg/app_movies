@@ -69,7 +69,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(30, 30, 30, 50),
+      //backgroundColor: const Color.fromRGBO(30, 30, 30, 50),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
